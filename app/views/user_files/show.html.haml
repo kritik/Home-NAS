@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Folder:
+  = @user_file.folder
+%p
+  %b User:
+  = @user_file.user
+%p
+  %b Changes:
+  = @user_file.changes
+%p
+  %b Checksum:
+  = @user_file.checksum
+%p
+  %b Extension:
+  = @user_file.extension
+%p
+  %b File uid:
+  = @user_file.file_uid
+%p
+  %b File name:
+  = @user_file.file_name
+
+= link_to 'Edit', edit_user_file_path(@user_file)
+\|
+= link_to 'Back', user_files_path

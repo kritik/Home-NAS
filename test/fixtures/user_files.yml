@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  folder_id: 
+  user_id: 
+  changes: 
+  checksum: MyString
+  extension: MyString
+  file_uid: MyString
+  file_name: MyString
+
+two:
+  folder_id: 
+  user_id: 
+  changes: 
+  checksum: MyString
+  extension: MyString
+  file_uid: MyString
+  file_name: MyString

@@ -1,0 +1,18 @@
+= form_for @user_file do |f|
+  - if @user_file.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@user_file.errors.count, "error")} prohibited this user_file from being saved:"
+      %ul
+        - @user_file.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    folder:
+    = @folder.title
+  .field
+    = f.label :file
+    = f.file_field :file
+    %br
+    = f.text_field :file_url, placeholder: 'or paste here link'
+  .actions
+    = f.submit 'Save'
