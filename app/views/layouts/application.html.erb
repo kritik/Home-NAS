@@ -2,15 +2,439 @@
 <html>
 <head>
   <title>HomeNas</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag 'http://yui.yahooapis.com/pure/0.6.0/pure-min.css' %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
-<%= yield %>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link"><span></span></a>
+    <div id="menu">
+      <div class="pure-menu">
+        <%= render "menu" %>
+      </div>
+    </div>
+
+
+    <div id="main">
+
+
+
+
+
+
+
+
+      <!--<div class="header">-->
+        <!--<h1>Layouts</h1>-->
+
+
+        <!--<h2>Quickstart your next web project with these example layouts.</h2>-->
+
+      <!--</div>-->
+
+
+      <!--<div class="content">-->
+        <!--<h2 id="common-layouts" class="content-subhead">Common Layouts<a href="#common-layouts" class="content-link" title="Heading anchor"></a></h2>-->
+        <!--<p>-->
+          <!--Pure was crafted with the goal that it can be used in every web project. To showcase this, we've made some common layouts that leverage Pure. These layouts are responsive and don't require JavaScript (except for-->
+          <!--certain menu interactions).-->
+        <!--</p>-->
+
+        <!--<aside>-->
+          <!--<p>-->
+            <!--When viewing these layouts, view or copy the source to get a good understanding of what's happening.-->
+          <!--</p>-->
+        <!--</aside>-->
+
+
+        <!--<div class="layout-item l-wrap pure-g">-->
+          <!--<div class="layout-item-screenshot content pure-u-1 u-sm-1-2">-->
+            <!--<a href="/layouts/blog/">-->
+              <!--<img src="/img/layouts/blog@2x.jpg" class="pure-img-responsive" width="400" height="214"-->
+                   <!--alt="Screenshot of Blog example layout.">-->
+            <!--</a>-->
+          <!--</div>-->
+
+          <!--<div class="layout-item-content content pure-u-1 u-sm-1-2">-->
+            <!--<h3 class="layout-item-head">Blog</h3>-->
+            <!--<p>A layout example that shows off a blog page with a list of posts.</p>-->
+
+
+            <!--<ul class="layout-item-modules pure-g">-->
+
+              <!--<li class="layout-item-module layout-item-module-base pure-u">-->
+                <!--<a href="/base/">base</a>-->
+              <!--</li>-->
+
+              <!--<li class="layout-item-module layout-item-module-grids pure-u">-->
+                <!--<a href="/grids/">grids</a>-->
+              <!--</li>-->
+
+              <!--<li class="layout-item-module layout-item-module-buttons pure-u">-->
+                <!--<a href="/buttons/">buttons</a>-->
+              <!--</li>-->
+
+              <!--<li class="layout-item-module layout-item-module-menus pure-u">-->
+                <!--<a href="/menus/">menus</a>-->
+              <!--</li>-->
+
+            <!--</ul>-->
+
+
+            <!--<p>-->
+              <!--<a href="/layouts/blog/"-->
+                 <!--class="pure-button pure-button-primary">View</a>-->
+
+              <!--<a download href="/layouts/blog/download"-->
+                 <!--onclick="return Pure.trackDownload.call(this, 'layouts', 'blog');"-->
+                 <!--class="pure-button">Download</a>-->
+            <!--</p>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="layout-item l-wrap pure-g">-->
+          <!--<div class="layout-item-screenshot content pure-u-1 u-sm-1-2">-->
+            <!--<a href="/layouts/email/">-->
+              <!--<img src="/img/layouts/email@2x.jpg" class="pure-img-responsive" width="400" height="214"-->
+                   <!--alt="Screenshot of Email example layout.">-->
+            <!--</a>-->
+          <!--</div>-->
+
+          <!--<div class="layout-item-content content pure-u-1 u-sm-1-2">-->
+            <!--<h3 class="layout-item-head">Email</h3>-->
+            <!--<p>A layout example that shows off a responsive email layout.</p>-->
+
+
+            <!--<ul class="layout-item-modules pure-g">-->
+
+              <!--<li class="layout-item-module layout-item-module-base pure-u">-->
+                <!--<a href="/base/">base</a>-->
+              <!--</li>-->
+
+              <!--<li class="layout-item-module layout-item-module-grids pure-u">-->
+                <!--<a href="/grids/">grids</a>-->
+              <!--</li>-->
+
+              <!--<li class="layout-item-module layout-item-module-buttons pure-u">-->
+                <!--<a href="/buttons/">buttons</a>-->
+              <!--</li>-->
+
+              <!--<li class="layout-item-module layout-item-module-menus pure-u">-->
+                <!--<a href="/menus/">menus</a>-->
+              <!--</li>-->
+
+            <!--</ul>-->
+
+
+            <!--<p>-->
+              <!--<a href="/layouts/email/"-->
+                 <!--class="pure-button pure-button-primary">View</a>-->
+
+              <!--<a download href="/layouts/email/download"-->
+                 <!--onclick="return Pure.trackDownload.call(this, 'layouts', 'email');"-->
+                 <!--class="pure-button">Download</a>-->
+            <!--</p>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="layout-item l-wrap pure-g">-->
+          <!--<div class="layout-item-screenshot content pure-u-1 u-sm-1-2">-->
+            <!--<a href="/layouts/gallery/">-->
+              <!--<img src="/img/layouts/gallery@2x.jpg" class="pure-img-responsive" width="400" height="214"-->
+                   <!--alt="Screenshot of Photo Gallery example layout.">-->
+            <!--</a>-->
+          <!--</div>-->
+
+          <!--<div class="layout-item-content content pure-u-1 u-sm-1-2">-->
+            <!--<h3 class="layout-item-head">Photo Gallery</h3>-->
+            <!--<p>A layout example that shows off a responsive photo gallery.</p>-->
+
+
+            <!--<ul class="layout-item-modules pure-g">-->
+
+              <!--<li class="layout-item-module layout-item-module-base pure-u">-->
+                <!--<a href="/base/">base</a>-->
+              <!--</li>-->
+
+              <!--<li class="layout-item-module layout-item-module-grids pure-u">-->
+                <!--<a href="/grids/">grids</a>-->
+              <!--</li>-->
+
+              <!--<li class="layout-item-module layout-item-module-forms pure-u">-->
+                <!--<a href="/forms/">forms</a>-->
+              <!--</li>-->
+
+              <!--<li class="layout-item-module layout-item-module-buttons pure-u">-->
+                <!--<a href="/buttons/">buttons</a>-->
+              <!--</li>-->
+
+              <!--<li class="layout-item-module layout-item-module-menus pure-u">-->
+                <!--<a href="/menus/">menus</a>-->
+              <!--</li>-->
+
+            <!--</ul>-->
+
+
+            <!--<p>-->
+              <!--<a href="/layouts/gallery/"-->
+                 <!--class="pure-button pure-button-primary">View</a>-->
+
+              <!--<a download href="/layouts/gallery/download"-->
+                 <!--onclick="return Pure.trackDownload.call(this, 'layouts', 'gallery');"-->
+                 <!--class="pure-button">Download</a>-->
+            <!--</p>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="layout-item l-wrap pure-g">-->
+          <!--<div class="layout-item-screenshot content pure-u-1 u-sm-1-2">-->
+            <!--<a href="/layouts/marketing/">-->
+              <!--<img src="/img/layouts/marketing@2x.jpg" class="pure-img-responsive" width="400" height="214"-->
+                   <!--alt="Screenshot of Landing Page example layout.">-->
+            <!--</a>-->
+          <!--</div>-->
+
+          <!--<div class="layout-item-content content pure-u-1 u-sm-1-2">-->
+            <!--<h3 class="layout-item-head">Landing Page</h3>-->
+            <!--<p>A layout example that shows off a responsive product landing page.</p>-->
+
+
+            <!--<ul class="layout-item-modules pure-g">-->
+
+              <!--<li class="layout-item-module layout-item-module-base pure-u">-->
+                <!--<a href="/base/">base</a>-->
+              <!--</li>-->
+
+              <!--<li class="layout-item-module layout-item-module-grids pure-u">-->
+                <!--<a href="/grids/">grids</a>-->
+              <!--</li>-->
+
+              <!--<li class="layout-item-module layout-item-module-buttons pure-u">-->
+                <!--<a href="/buttons/">buttons</a>-->
+              <!--</li>-->
+
+              <!--<li class="layout-item-module layout-item-module-menus pure-u">-->
+                <!--<a href="/menus/">menus</a>-->
+              <!--</li>-->
+
+              <!--<li class="layout-item-module layout-item-module-forms pure-u">-->
+                <!--<a href="/forms/">forms</a>-->
+              <!--</li>-->
+
+            <!--</ul>-->
+
+
+            <!--<p>-->
+              <!--<a href="/layouts/marketing/"-->
+                 <!--class="pure-button pure-button-primary">View</a>-->
+
+              <!--<a download href="/layouts/marketing/download"-->
+                 <!--onclick="return Pure.trackDownload.call(this, 'layouts', 'marketing');"-->
+                 <!--class="pure-button">Download</a>-->
+            <!--</p>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="layout-item l-wrap pure-g">-->
+          <!--<div class="layout-item-screenshot content pure-u-1 u-sm-1-2">-->
+            <!--<a href="/layouts/pricing/">-->
+              <!--<img src="/img/layouts/pricing@2x.jpg" class="pure-img-responsive" width="400" height="214"-->
+                   <!--alt="Screenshot of Pricing Table example layout.">-->
+            <!--</a>-->
+          <!--</div>-->
+
+          <!--<div class="layout-item-content content pure-u-1 u-sm-1-2">-->
+            <!--<h3 class="layout-item-head">Pricing Table</h3>-->
+            <!--<p>A layout example that shows off a responsive pricing table.</p>-->
+
+
+            <!--<ul class="layout-item-modules pure-g">-->
+
+              <!--<li class="layout-item-module layout-item-module-base pure-u">-->
+                <!--<a href="/base/">base</a>-->
+              <!--</li>-->
+
+              <!--<li class="layout-item-module layout-item-module-grids pure-u">-->
+                <!--<a href="/grids/">grids</a>-->
+              <!--</li>-->
+
+              <!--<li class="layout-item-module layout-item-module-buttons pure-u">-->
+                <!--<a href="/buttons/">buttons</a>-->
+              <!--</li>-->
+
+              <!--<li class="layout-item-module layout-item-module-menus pure-u">-->
+                <!--<a href="/menus/">menus</a>-->
+              <!--</li>-->
+
+            <!--</ul>-->
+
+
+            <!--<p>-->
+              <!--<a href="/layouts/pricing/"-->
+                 <!--class="pure-button pure-button-primary">View</a>-->
+
+              <!--<a download href="/layouts/pricing/download"-->
+                 <!--onclick="return Pure.trackDownload.call(this, 'layouts', 'pricing');"-->
+                 <!--class="pure-button">Download</a>-->
+            <!--</p>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="layout-item l-wrap pure-g">-->
+          <!--<div class="layout-item-screenshot content pure-u-1 u-sm-1-2">-->
+            <!--<a href="/layouts/side-menu/">-->
+              <!--<img src="/img/layouts/side-menu@2x.jpg" class="pure-img-responsive" width="400" height="214"-->
+                   <!--alt="Screenshot of Responsive Side Menu example layout.">-->
+            <!--</a>-->
+          <!--</div>-->
+
+          <!--<div class="layout-item-content content pure-u-1 u-sm-1-2">-->
+            <!--<h3 class="layout-item-head">Responsive Side Menu</h3>-->
+            <!--<p>A layout example with a side menu that hides on mobile, just like the Pure website.</p>-->
+
+
+            <!--<ul class="layout-item-modules pure-g">-->
+
+              <!--<li class="layout-item-module layout-item-module-base pure-u">-->
+                <!--<a href="/base/">base</a>-->
+              <!--</li>-->
+
+              <!--<li class="layout-item-module layout-item-module-grids pure-u">-->
+                <!--<a href="/grids/">grids</a>-->
+              <!--</li>-->
+
+              <!--<li class="layout-item-module layout-item-module-menus pure-u">-->
+                <!--<a href="/menus/">menus</a>-->
+              <!--</li>-->
+
+            <!--</ul>-->
+
+
+            <!--<p>-->
+              <!--<a href="/layouts/side-menu/"-->
+                 <!--class="pure-button pure-button-primary">View</a>-->
+
+              <!--<a download href="/layouts/side-menu/download"-->
+                 <!--onclick="return Pure.trackDownload.call(this, 'layouts', 'side-menu');"-->
+                 <!--class="pure-button">Download</a>-->
+            <!--</p>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="layout-item l-wrap pure-g">-->
+          <!--<div class="layout-item-screenshot content pure-u-1 u-sm-1-2">-->
+            <!--<a href="/layouts/tucked-menu-vertical/">-->
+              <!--<img src="/img/layouts/tucked-menu-vertical@2x.jpg" class="pure-img-responsive" width="400" height="214"-->
+                   <!--alt="Screenshot of Responsive Horizontal-to-Vertical Menu example layout.">-->
+            <!--</a>-->
+          <!--</div>-->
+
+          <!--<div class="layout-item-content content pure-u-1 u-sm-1-2">-->
+            <!--<h3 class="layout-item-head">Responsive Horizontal-to-Vertical Menu</h3>-->
+            <!--<p>A set of horizontal menus that switch to vertical-->
+              <!--and which hide at small window widths.</p>-->
+
+
+            <!--<ul class="layout-item-modules pure-g">-->
+
+              <!--<li class="layout-item-module layout-item-module-base pure-u">-->
+                <!--<a href="/base/">base</a>-->
+              <!--</li>-->
+
+              <!--<li class="layout-item-module layout-item-module-grids pure-u">-->
+                <!--<a href="/grids/">grids</a>-->
+              <!--</li>-->
+
+              <!--<li class="layout-item-module layout-item-module-menus pure-u">-->
+                <!--<a href="/menus/">menus</a>-->
+              <!--</li>-->
+
+            <!--</ul>-->
+
+
+            <!--<p>-->
+              <!--<a href="/layouts/tucked-menu-vertical/"-->
+                 <!--class="pure-button pure-button-primary">View</a>-->
+
+              <!--<a download href="/layouts/tucked-menu-vertical/download"-->
+                 <!--onclick="return Pure.trackDownload.call(this, 'layouts', 'tucked-menu-vertical');"-->
+                 <!--class="pure-button">Download</a>-->
+            <!--</p>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="layout-item l-wrap pure-g">-->
+          <!--<div class="layout-item-screenshot content pure-u-1 u-sm-1-2">-->
+            <!--<a href="/layouts/tucked-menu/">-->
+              <!--<img src="/img/layouts/tucked-menu@2x.jpg" class="pure-img-responsive" width="400" height="214"-->
+                   <!--alt="Screenshot of Responsive Horizontal-to-Scrollable Menu example layout.">-->
+            <!--</a>-->
+          <!--</div>-->
+
+          <!--<div class="layout-item-content content pure-u-1 u-sm-1-2">-->
+            <!--<h3 class="layout-item-head">Responsive Horizontal-to-Scrollable Menu</h3>-->
+            <!--<p>Showcases a horizontal menu that hides at-->
+              <!--small window widths, and which scrolls when revealed.</p>-->
+
+
+            <!--<ul class="layout-item-modules pure-g">-->
+
+              <!--<li class="layout-item-module layout-item-module-base pure-u">-->
+                <!--<a href="/base/">base</a>-->
+              <!--</li>-->
+
+              <!--<li class="layout-item-module layout-item-module-menus pure-u">-->
+                <!--<a href="/menus/">menus</a>-->
+              <!--</li>-->
+
+            <!--</ul>-->
+
+
+            <!--<p>-->
+              <!--<a href="/layouts/tucked-menu/"-->
+                 <!--class="pure-button pure-button-primary">View</a>-->
+
+              <!--<a download href="/layouts/tucked-menu/download"-->
+                 <!--onclick="return Pure.trackDownload.call(this, 'layouts', 'tucked-menu');"-->
+                 <!--class="pure-button">Download</a>-->
+            <!--</p>-->
+          <!--</div>-->
+        <!--</div>-->
+
+      <!--</div>-->
+
+
+      <!--<div class="footer">-->
+        <!--<div class="legal pure-g">-->
+          <!--<div class="pure-u-1 u-sm-1-2">-->
+            <!--<p class="legal-license">-->
+              <!--This site is built with &lt;3 using Pure v0.6.0<br>-->
+              <!--All code on this site is licensed under the <a href="https://github.com/yahoo/pure-site/blob/master/LICENSE.md">Yahoo BSD License</a> unless otherwise stated.-->
+            <!--</p>-->
+          <!--</div>-->
+
+          <!--<div class="pure-u-1 u-sm-1-2">-->
+            <!--<ul class="legal-links">-->
+              <!--<li><a href="https://github.com/yahoo/pure/">GitHub Project</a></li>-->
+              <!--<li><a href="https://hackerone.com/yahoo/">Security Contact Info</a></li>-->
+            <!--</ul>-->
+
+            <!--<p class="legal-copyright">-->
+              <!--&copy; 2014 Yahoo! Inc. All rights reserved.-->
+            <!--</p>-->
+          <!--</div>-->
+        <!--</div>-->
+
+      <!--</div>-->
+      <%= yield %>
+    </div>
+  </div>
 
 </body>
 </html>

@@ -6,4 +6,8 @@ class Folder < ActiveRecord::Base
   def title
     "/#{name.presence}"
   end
+
+  def root?
+    name.blank?
+  end
 end

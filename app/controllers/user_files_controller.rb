@@ -2,6 +2,7 @@ class UserFilesController < ApplicationController
   before_action :set_folder
   before_action :set_user_file, only: [:show, :edit, :update, :destroy]
 
+
   # GET /user_files/1
   def show
   end
