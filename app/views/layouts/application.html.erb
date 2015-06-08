@@ -5,14 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag 'http://yui.yahooapis.com/pure/0.6.0/pure-min.css' %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
-  <div id="layout">
+    <div id="layout">
     <a href="#menu" id="menuLink" class="menu-link"><span></span></a>
     <div id="menu">
       <div class="pure-menu">
@@ -30,16 +27,18 @@
 
 
 
-      <!--<div class="header">-->
+      <div class="header">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
         <!--<h1>Layouts</h1>-->
 
 
         <!--<h2>Quickstart your next web project with these example layouts.</h2>-->
 
-      <!--</div>-->
+      </div>
 
 
-      <!--<div class="content">-->
+      <div class="content">
         <!--<h2 id="common-layouts" class="content-subhead">Common Layouts<a href="#common-layouts" class="content-link" title="Heading anchor"></a></h2>-->
         <!--<p>-->
           <!--Pure was crafted with the goal that it can be used in every web project. To showcase this, we've made some common layouts that leverage Pure. These layouts are responsive and don't require JavaScript (except for-->
@@ -406,8 +405,8 @@
             <!--</p>-->
           <!--</div>-->
         <!--</div>-->
-
-      <!--</div>-->
+        <%= yield %>
+      </div>
 
 
       <!--<div class="footer">-->
@@ -432,7 +431,6 @@
         <!--</div>-->
 
       <!--</div>-->
-      <%= yield %>
     </div>
   </div>
 

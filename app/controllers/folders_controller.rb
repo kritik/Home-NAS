@@ -12,11 +12,12 @@ class FoldersController < ApplicationController
 
   # POST /folders
   def create
-    @folder = Folder.new(folder_params)
+    @folder = Folder.new(name: [params[:path], folder_params[:name]].select(&:present?).join("/"))
 
     if @folder.save
       redirect_to upload_file_path(path: @folder.name), notice: 'Folder was successfully created.'
     else
+      @folder.name = folder_params[:name]
       render :new
     end
   end

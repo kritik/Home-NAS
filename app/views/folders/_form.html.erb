@@ -11,21 +11,14 @@
     </div>
   <% end %>
 
+
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= text_field_tag :path, params[:path] %>/<%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label :parent_id %><br>
     <%= f.number_field :parent_id %>
-  </div>
-  <div class="field">
-    <%= f.label :lft %><br>
-    <%= f.number_field :lft %>
-  </div>
-  <div class="field">
-    <%= f.label :rgt %><br>
-    <%= f.number_field :rgt %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -6,6 +6,6 @@
   -#%li.pure-menu-item
     %a.pure-menu-link{:href => "/tools/"} Tools
   %li.pure-menu-item.menu-item-divided
-    %a.pure-menu-link{:href => "folders/new"} Add folder
+    = link_to "Add folder", new_folder_path(path: params[:path]), class: "pure-menu-link"
   %li.pure-menu-item
     %a.pure-menu-link{:href => "https://github.com/yahoo/pure/releases/"} Upload here
