@@ -11,7 +11,8 @@
       %th
 
   %tbody
-    - UserFile.all.each do |user_file|
+    - @folder.files.each do |user_file|
+      - next unless user_file.persisted?
       %tr
         %td= user_file.folder.title
         %td= user_file.extension
@@ -20,6 +21,3 @@
         %td= link_to 'Edit', edit_user_file_path(user_file)
         %td= link_to 'Destroy', user_file, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
-
-= link_to 'New User file', new_user_file_path
