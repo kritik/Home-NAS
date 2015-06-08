@@ -1,4 +1,11 @@
 require "digest"
+# What we should do:
+# identify files and make snapshot of it as kde does it (async)
+# async download for:
+#  * magnet
+#  * web
+# states to started and ready files
+# after file done and checksum changed, save binary diff
 class UserFile < ActiveRecord::Base
   dragonfly_accessor :file
   belongs_to :folder
