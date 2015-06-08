@@ -1,6 +1,6 @@
 = link_to "Root", root_upload_file_path, class: 'pure-menu-heading'
 %ul.pure-menu-list
-  - Folder.all.each do |f|
+  - Folder.order(:name).each do |f|
     %li.pure-menu-item{class: params[:path].eql?(f.name.presence) && 'pure-menu-selected'}
       = link_to f.title, (f.root? ? root_upload_file_path : upload_file_path(path: f.name)), class: 'pure-menu-link'
   -#%li.pure-menu-item
