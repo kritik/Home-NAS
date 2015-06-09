@@ -53,6 +53,7 @@ class UserFilesController < ApplicationController
 
     def set_folder
       @folder = Folder.find_or_initialize_by(path: params[:path].to_s)
+      @folder.save! if @folder.root? # need always create it
     end
 
     # Only allow a trusted parameter "white list" through.
