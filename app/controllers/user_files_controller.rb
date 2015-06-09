@@ -52,7 +52,7 @@ class UserFilesController < ApplicationController
     end
 
     def set_folder
-      @folder = Folder.find_or_initialize_by(name: params[:path].to_s)
+      @folder = Folder.find_or_initialize_by(path: params[:path].to_s)
     end
 
     # Only allow a trusted parameter "white list" through.
