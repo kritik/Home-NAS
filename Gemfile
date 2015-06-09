@@ -21,7 +21,7 @@ gem 'turbolinks'
 gem 'devise'
 gem 'haml-rails'
 gem 'awesome_nested_set'
-gem 'dragonfly', '~> 1.0.10'
+gem 'state_machine'
 gem 'pry-rails'
 
 # Use ActiveModel has_secure_password

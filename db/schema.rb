@@ -28,19 +28,22 @@ ActiveRecord::Schema.define(version: 20150607150509) do
   end
 
   add_index "folders", ["lft"], name: "index_folders_on_lft", using: :btree
+  add_index "folders", ["name"], name: "index_folders_on_name", using: :btree
   add_index "folders", ["parent_id"], name: "index_folders_on_parent_id", using: :btree
   add_index "folders", ["rgt"], name: "index_folders_on_rgt", using: :btree
 
   create_table "user_files", force: :cascade do |t|
     t.integer  "folder_id"
     t.integer  "user_id"
+    t.string   "state"
     t.json     "logs"
     t.string   "checksum"
     t.string   "extension"
     t.string   "file_uid"
     t.string   "file_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "server_data"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "user_files", ["folder_id"], name: "index_user_files_on_folder_id", using: :btree
