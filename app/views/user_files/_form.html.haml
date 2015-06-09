@@ -11,7 +11,7 @@
     = @folder.title
   .field
     = f.label :file
-    = f.file_field :file
+    = f.file_field :file, multiple: true
     %br
     = f.text_field :file_url, placeholder: 'or paste here link'
   .actions

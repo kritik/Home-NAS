@@ -57,12 +57,15 @@ class UserFile < ActiveRecord::Base
     self.checksum  = Digest::SHA2.hexdigest(val.tempfile.read)
     @temp_file = val
   end
+  def file; @temp_file; end
 
   # takes file from the string
   # if protocols are http ftp then curl/wget
   # if magnet then set to torrent
   # both are async
   def file_url= val
+    return if val.blank?
+
     self.state = :pending
   end
   def file_url; end

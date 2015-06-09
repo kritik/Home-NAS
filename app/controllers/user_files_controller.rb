@@ -20,14 +20,17 @@ class UserFilesController < ApplicationController
   def create
     Folder.transaction do
       @folder.save!
-      @user_file = @folder.files.new(user_file_params)
-
-      if @user_file.save
-        redirect_to folder_path, notice: 'User file was successfully created.'
-      else
-        render :new
+      (Array(params[:user_file][:file]).each do |file|
+        @folder.files.create!(file: file)
+      end
+      params[:user_file][:file_url].to_s.slit("\n")).each do |link|
+        @folder.files.create!(file_url: link)
       end
     end
+    redirect_to folder_path, notice: 'User file was successfully created.'
+  rescue ActiveRecord::RecordInvalid
+    new
+    render :new
   end
 
   # PATCH/PUT /user_files/1
