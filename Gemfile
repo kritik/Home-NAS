@@ -20,7 +20,6 @@ gem 'turbolinks'
 
 gem 'devise'
 gem 'haml-rails'
-gem 'awesome_nested_set'
 gem 'state_machine'
 gem 'pry-rails'
 

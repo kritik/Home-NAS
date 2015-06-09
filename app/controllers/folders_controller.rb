@@ -12,12 +12,12 @@ class FoldersController < ApplicationController
 
   # POST /folders
   def create
-    @folder = Folder.new(name: [params[:path], folder_params[:name]].select(&:present?).join("/"))
+    @folder = Folder.new(path: [params[:path], folder_params[:name]].select(&:present?).join("/"))
 
     if @folder.save
-      redirect_to upload_file_path(path: @folder.name), notice: 'Folder was successfully created.'
+      redirect_to upload_file_path(path: @folder.path), notice: 'Folder was successfully created.'
     else
-      @folder.name = folder_params[:name]
+      @folder.path = folder_params[:path]
       render :new
     end
   end
@@ -25,7 +25,7 @@ class FoldersController < ApplicationController
   # PATCH/PUT /folders/1
   def update
     if @folder.update(folder_params)
-      redirect_to upload_file_path(path: @folder.name), notice: 'Folder was successfully updated.'
+      redirect_to upload_file_path(path: @folder.path), notice: 'Folder was successfully updated.'
     else
       render :edit
     end
@@ -45,6 +45,6 @@ class FoldersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def folder_params
-      params.require(:folder).permit(:name, :parent_id)
+      params.require(:folder).permit(:name, :path)
     end
 end

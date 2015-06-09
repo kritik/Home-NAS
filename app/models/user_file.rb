@@ -65,6 +65,7 @@ class UserFile < ActiveRecord::Base
   def file_url= val
     self.state = :pending
   end
+  def file_url; end
 
   private
   def localize_file

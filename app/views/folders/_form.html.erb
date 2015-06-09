@@ -14,11 +14,7 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= text_field_tag :path, params[:path] %>/<%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :parent_id %><br>
-    <%= f.number_field :parent_id %>
+    <%= text_field_tag(:path, params[:path]) if params[:path].present?%>/<%= f.text_field :name %>
   </div>
   <div class="actions">
     <%= f.submit %>
