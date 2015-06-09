@@ -52,7 +52,7 @@ class UserFile < ActiveRecord::Base
   # accepts binary file
   def file= val
     self.state     = :local
-    self.file_name = tempfile.name
+    self.file_name = val.original_filename
     self.extension = File.extname(file_name)[1..-1]
     self.checksum  = Digest::SHA2.hexdigest(val.tempfile.read)
     @temp_file = val
@@ -72,6 +72,6 @@ class UserFile < ActiveRecord::Base
     return if errors.any? || @temp_file.nil?
 
     FileUtils.mkdir_p(dir)
-    FileUtils.copy_file(val.path, path)
+    FileUtils.copy_file(@temp_file.path, path)
   end
 end
