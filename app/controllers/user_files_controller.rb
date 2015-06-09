@@ -23,7 +23,7 @@ class UserFilesController < ApplicationController
       (Array(params[:user_file][:file]).each do |file|
         @folder.files.create!(file: file)
       end
-      params[:user_file][:file_url].to_s.slit("\n")).each do |link|
+      params[:user_file][:file_url].to_s.split("\n")).each do |link|
         @folder.files.create!(file_url: link)
       end
     end
