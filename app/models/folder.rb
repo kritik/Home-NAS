@@ -1,14 +1,15 @@
 class Folder < ActiveRecord::Base
   acts_as_nested_set
   has_many :files, class_name: "UserFile"
-  validates :name, presence: true, allow_blank: true
-  validates :name, uniqueness: true
+  validates :path, presence: true, allow_blank: true
+  validates :path, uniqueness: true
+  alias_attribute :name, :path
 
   def title
-    "/#{name.presence}"
+    "/#{path.presence}"
   end
 
   def root?
-    name.blank?
+    path.blank?
   end
 end

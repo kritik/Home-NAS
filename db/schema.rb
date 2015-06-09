@@ -17,20 +17,12 @@ ActiveRecord::Schema.define(version: 20150607150509) do
   enable_extension "plpgsql"
 
   create_table "folders", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "parent_id"
-    t.integer  "lft",                        null: false
-    t.integer  "rgt",                        null: false
-    t.integer  "depth",          default: 0, null: false
-    t.integer  "children_count", default: 0, null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "path"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "folders", ["lft"], name: "index_folders_on_lft", using: :btree
-  add_index "folders", ["name"], name: "index_folders_on_name", using: :btree
-  add_index "folders", ["parent_id"], name: "index_folders_on_parent_id", using: :btree
-  add_index "folders", ["rgt"], name: "index_folders_on_rgt", using: :btree
+  add_index "folders", ["path"], name: "index_folders_on_path", using: :btree
 
   create_table "user_files", force: :cascade do |t|
     t.integer  "folder_id"
