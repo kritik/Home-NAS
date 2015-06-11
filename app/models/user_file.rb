@@ -7,14 +7,17 @@ require "digest"
 # states to started and ready files
 # after file done and checksum changed, save binary diff
 class UserFile < ActiveRecord::Base
-  attr_accessor :temp_file
+  WORKER_LIST = [HttpJob]
+  attr_accessor :temp_file, :processor
   belongs_to :folder
   belongs_to :user
 
   validates_presence_of   :folder_id#, :user_id
   validates_presence_of   :checksum, :extension, :file, unless: :pending?
   validates_uniqueness_of :file_name, scope: :folder_id
+
   after_validation :localize_file
+  after_save :run_processor
 
 
   state_machine :initial => :local do
@@ -42,7 +45,7 @@ class UserFile < ActiveRecord::Base
   end
 
   def dir
-    Rails.root.join("public/system/user_files/#{folder.name}")
+    Rails.root.join("public/system/user_files/#{folder.path}")
   end
 
   def path
@@ -66,7 +69,9 @@ class UserFile < ActiveRecord::Base
   def file_url= val
     return if val.blank?
 
-    self.state = :pending
+    self.state       = :pending
+    self.server_data = val
+    @processor = WORKER_LIST.detect{|worker| worker.can_work_with_file_name?(val) }
   end
   def file_url; end
 
@@ -76,5 +81,10 @@ class UserFile < ActiveRecord::Base
 
     FileUtils.mkdir_p(dir)
     FileUtils.copy_file(@temp_file.path, path)
+  end
+
+  def run_processor
+    return unless @processor
+    @processor.perform_later(self)
   end
 end
