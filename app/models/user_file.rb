@@ -8,7 +8,7 @@ require "digest"
 # after file done and checksum changed, save binary diff
 class UserFile < ActiveRecord::Base
   WORKER_LIST = [HttpJob]
-  attr_accessor :temp_file, :processor
+  attr_accessor :temp_file, :file_last_action
   belongs_to :folder
   belongs_to :user
 
@@ -59,6 +59,7 @@ class UserFile < ActiveRecord::Base
     self.extension = File.extname(file_name)[1..-1]
     self.checksum  = Digest::SHA2.hexdigest(val.tempfile.read)
     @temp_file = val
+    @file_last_action = __method__.to_sym
   end
   def file; @temp_file; end
 
@@ -71,7 +72,7 @@ class UserFile < ActiveRecord::Base
 
     self.state       = :pending
     self.server_data = val
-    @processor = WORKER_LIST.detect{|worker| worker.can_work_with_file_name?(val) }
+    @file_last_action = __method__.to_sym
   end
   def file_url; end
 
@@ -83,8 +84,16 @@ class UserFile < ActiveRecord::Base
     FileUtils.copy_file(@temp_file.path, path)
   end
 
+
+  # some other job should decide what to do
+  # in order to better support if errors occured
   def run_processor
-    return unless @processor
-    @processor.perform_later(self)
+    if @file_last_action == :file_url
+      processor = WORKER_LIST.detect{|worker| worker.can_work_with_file_name?(val) }
+      processor.perform_later(self)
+    elsif @file_last_action == :file
+
+    end
+
   end
 end
